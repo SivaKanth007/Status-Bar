@@ -9,7 +9,7 @@ One script to install and configure [indicator-sysmonitor](https://github.com/fo
 ## Usage
 
 ```bash
-git clone <your-repo-url> && cd Status-Bar && bash setup.sh
+git clone https://github.com/SivaKanth007/Status-Bar.git && cd Status-Bar && bash setup.sh
 ```
 
 ## Requirements

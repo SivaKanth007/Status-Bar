@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Status Bar Setup — git clone <repo> && cd Status-Bar && bash setup.sh
+# Status Bar Setup — git clone https://github.com/SivaKanth007/Status-Bar.git && cd Status-Bar && bash setup.sh
 
 echo "🧹 Cleaning up old config..."
 killall indicator-sysmonitor 2>/dev/null || true
