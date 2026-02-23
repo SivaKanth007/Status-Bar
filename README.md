@@ -1,6 +1,6 @@
 # 🖥️ Status Bar Setup for Ubuntu
 
-Automated setup for [indicator-sysmonitor](https://github.com/fossfreedom/indicator-sysmonitor) on Ubuntu — installs everything and configures your status bar with **zero manual steps**.
+Automated setup for [indicator-sysmonitor](https://github.com/fossfreedom/indicator-sysmonitor) on Ubuntu — one command, zero manual steps.
 
 ## What You Get
 
@@ -16,35 +16,25 @@ cd Status-Bar
 bash install.sh
 ```
 
-That's it. No GUI clicks, no manual config.
-
 ## What It Installs
 
-- **indicator-sysmonitor** (via `ppa:fossfreedom/indicator-sysmonitor`)
-- **lm-sensors** (for CPU/GPU temperature readings)
-- Custom sensor scripts for NVIDIA GPU VRAM monitoring
-- Autostart entry so the indicator launches on login
-
-## Custom Sensors
-
-| Sensor | Description | Script |
-|--------|-------------|--------|
-| `{nvlogo}` | GPU section marker (🎮) | `~/.indicator-sysmonitor/nv_logo.sh` |
-| `{vram}` | NVIDIA VRAM usage (MB) | `~/.indicator-sysmonitor/get_vram.sh` |
+- **indicator-sysmonitor** (via PPA)
+- **lm-sensors** for temperature readings
+- Config with NVIDIA VRAM monitoring (inline `nvidia-smi` — no wrapper scripts)
+- Autostart entry for login
 
 ## Requirements
 
 - Ubuntu (tested on 24.04)
-- NVIDIA GPU with `nvidia-smi` available
+- NVIDIA GPU with `nvidia-smi`
 
-## File Structure
+## Files
 
 ```
 Status-Bar/
-├── install.sh                  # One-liner entry point
-├── setup_stats_monitor.sh      # Main setup script
+├── install.sh              # Entry point
+├── setup_stats_monitor.sh  # Main setup
 ├── config/
-│   └── indicator-sysmonitor.desktop  # Autostart entry
-├── .gitignore
+│   └── indicator-sysmonitor.desktop
 └── README.md
 ```
