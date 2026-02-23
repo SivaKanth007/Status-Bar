@@ -32,7 +32,7 @@ cfg = {
     'interval': 2,
     'on_startup': True,
     'sensors': {
-        'vram': ['NVIDIA VRAM', 'nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits']
+        'vram': ['NVIDIA VRAM', 'nvidia-smi --query-gpu=memory.used --format=csv,noheader']
     }
 }
 with open('$CONFIG_FILE', 'w') as f:
