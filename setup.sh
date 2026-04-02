@@ -9,16 +9,17 @@ rm -f "$HOME/.indicator-sysmonitor.json"
 
 echo "📦 Installing indicator-sysmonitor..."
 sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor -y
-sudo apt update && sudo apt install indicator-sysmonitor -y
+sudo apt update && sudo apt install indicator-sysmonitor lm-sensors -y
 
 echo "📝 Writing config..."
 cat > "$HOME/.indicator-sysmonitor.json" << 'EOF'
 {
-    "custom_text": "🚀 {simpleNet} | 💻 {cpu} 🌡️ {cputemp} | 🎮 {nvgpu} {vram} 🌡️ {nvgputemp} | 🧠 {mem} 🔁 {swap} | 💾 {fs///}",
+    "custom_text": "🚀 {simpleNet} | 💻 {cpu} 🌡️ {cputemp} | 🎮 {nvgpu} {vram} 🌡️ {nvgputemp} ❄️{gpu_fan}RPM | 🧠 {mem} 🔁 {swap} | 💾 {fs///}",
     "interval": 2,
     "on_startup": true,
     "sensors": {
-        "vram": ["NVIDIA VRAM", "nvidia-smi --query-gpu=memory.used --format=csv,noheader"]
+        "vram": ["NVIDIA VRAM", "nvidia-smi --query-gpu=memory.used --format=csv,noheader"],
+        "gpu_fan": ["GPU Fan Speed", "sensors | grep -i gpu_fan | awk '{print $2}'"]
     }
 }
 EOF
